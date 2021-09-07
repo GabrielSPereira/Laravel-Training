@@ -5,10 +5,12 @@
 @section('content')
   <h1>Edição</h1>
 
-  @if (session('warning'))
-      <x-alert>
-        {{ session('warning') }}
-      </x-alert>
+  @if ($errors->any())
+    <x-alert>
+      @foreach($errors->all() as $error)
+        {{ $error }} <br/>
+      @endforeach
+    </x-alert>
   @endif
 
   <form method="POST">
